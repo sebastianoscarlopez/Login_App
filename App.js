@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
-import store from './app/config/store';
+import store from './app/core/config/store';
 import * as Screens from './app/screens';
 
 export default class App extends Component {
