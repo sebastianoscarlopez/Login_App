@@ -12,7 +12,7 @@ import {
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 
-import * as Actions from '../actions/login'; //Import your actions
+import * as Actions from '../core/actions/login'; //Import your actions
 import {texts as T} from '../resources/values';
 
 class Login extends Component {

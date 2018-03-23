@@ -11,7 +11,7 @@ import {
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 
-import * as Actions from '../actions/home';
+import * as Actions from '../core/actions/home';
 
 class Home extends Component {
     constructor(props) {
