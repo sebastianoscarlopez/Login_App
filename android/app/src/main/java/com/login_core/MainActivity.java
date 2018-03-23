@@ -1,4 +1,4 @@
-package com.login_app;
+package com.login_core;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "Login_App";
+        return "Login_Core";
     }
 }

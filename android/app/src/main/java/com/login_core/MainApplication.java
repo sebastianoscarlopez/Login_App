@@ -1,4 +1,4 @@
-package com.login_app;
+package com.login_core;
 
 import android.app.Application;
 
