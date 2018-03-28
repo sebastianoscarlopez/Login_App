@@ -11,7 +11,7 @@ import {
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 
-import * as Actions from '../core/actions/home';
+import getData, * as Actions from '../core/actions/home';
 
 class Home extends Component {
     constructor(props) {
@@ -22,6 +22,10 @@ class Home extends Component {
 
         this.renderItem = this.renderItem.bind(this);
     }
+    
+    static navigationOptions = {
+        title: 'Home',
+    };
 
     componentDidMount() {
         this.props.getData();
@@ -68,8 +72,8 @@ class Home extends Component {
 // This function makes Redux know that this component needs to be passed a piece of the state
 function mapStateToProps(state, props) {
     return {
-        loading: state.home.loading,
-        data: state.home.data
+        loading: state.HomeReducer.loading,
+        data: state.HomeReducer.data
     }
 }
 
@@ -77,7 +81,7 @@ function mapStateToProps(state, props) {
 // while wrapping them in dispatch() so that they immediately dispatch an Action.
 // Just by doing this, we will have access to the actions defined in out actions file (action/home.js)
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators(Actions, dispatch);
+    return bindActionCreators(getData, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

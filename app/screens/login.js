@@ -12,7 +12,9 @@ import {
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 
-import * as Actions from '../core/actions/login'; //Import your actions
+import { NavigationActions } from "react-navigation";
+
+import tryAutenticate, * as Actions from '../core/actions/login'; //Import your actions
 import {texts as T} from '../resources/values';
 
 class Login extends Component {
@@ -24,9 +26,19 @@ class Login extends Component {
             password: ''
         };
     }
+    static navigationOptions = {
+        header: null
+    };
+    navigate = () => {
+        const navigateToHome = NavigationActions.navigate({
+          routeName:'home',
+          params:{name:'Shubhnik'}
+        })
+        this.props.navigation.dispatch(navigateToHome);
+    }
 
     render() {
-        const loading = this.props.loading &&
+        const loading = (this.props.message == "OK" || this.props.loading) &&
             <View>
                 <ActivityIndicator animating={true}/>
             </View>;
@@ -59,13 +71,13 @@ class Login extends Component {
 
 function mapStateToProps(state, props) {
     return {
-        loading: state.login.loading,
-        message: state.login.message
+        loading: state.LoginReducer.loading,
+        message: state.LoginReducer.message
     }
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators(Actions, dispatch);
+    return bindActionCreators(tryAutenticate, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
