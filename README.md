@@ -1,2 +1,2 @@
-# Login_Core
-Proof of concept React Core architecture. It's a submodule used by Login_Mobile and Login_Web
+# App Login
+Proof of concept React Core architecture. It use submoduleLogin_Core
